@@ -29,11 +29,11 @@ const { data, error, isLoading } = useGames(gameQuery);
       </GameCardContainer>
       )} 
 
-        {data.map((game) => (
+        {data?.results.map((game) => (
         <GameCard game={game} key={game.id}></GameCard> 
         ))}
     </SimpleGrid>
-    {error && <Text color={'red'}>{error}</Text>}
+    {error && <Text color={'red'}>{error.message}</Text>}
     </>
   )
 }
